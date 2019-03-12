@@ -1,8 +1,7 @@
-# ffmpeg - http://ffmpeg.org/download.html
 #
 # From https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
 #
-# https://hub.docker.com/r/jrottenberg/ffmpeg/
+# https://hub.docker.com/r/etherlabsio/ffmpeg/
 #
 #
 FROM        ubuntu:16.04 AS base
