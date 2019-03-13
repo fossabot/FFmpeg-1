@@ -44,21 +44,10 @@ RUN      buildDeps="autoconf \
                     yasm \
                     libpulse-dev \
                     libxcb1-dev libxcb-shm0-dev   libxcb-xfixes0-dev \
+                    libx264-dev \
                     zlib1g-dev" && \
         apt-get -yqq update && \
         apt-get install -yq --no-install-recommends ${buildDeps}
-
-## x264 http://www.videolan.org/developers/x264.html
-RUN \
-        DIR=/tmp/x264 && \
-        mkdir -p ${DIR} && \
-        cd ${DIR} && \
-        curl -sL https://download.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-${X264_VERSION}.tar.bz2 | \
-        tar -jx --strip-components=1 && \
-        ./configure --prefix="${PREFIX}" --enable-shared --enable-pic --disable-cli && \
-        make && \
-        make install && \
-        rm -rf ${DIR}
 
 ## ffmpeg from etherlabsio/ffmpeg
 RUN  \
