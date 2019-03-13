@@ -9,7 +9,7 @@ FROM        ubuntu:16.04 AS base
 WORKDIR     /tmp/workdir
 
 RUN     apt-get -yqq update && \
-        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 pulseaudio && \
+        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 pulseaudio libass5 libfreetype6 libsdl2-2.0-0 libva1 libvdpau1 libxcb1 libxcb-shm0 libxcb-xfixes0 zlib1g libx264-148 libxv1 libva-drm1 libva-x11-1 libxcb-shape0 && \
         apt-get autoremove -y && \
         apt-get clean -y
 
@@ -20,7 +20,7 @@ ARG        LD_LIBRARY_PATH=/opt/ffmpeg/lib
 ARG        PREFIX=/opt/ffmpeg
 ARG        MAKEFLAGS="-j2"
 
-ENV         FFMPEG_VERSION=4.1     \
+ENV         FFMPEG_VERSION=4.0.2     \
             X264_VERSION=20170226-2245-stable \
             SRC=/usr/local
 
