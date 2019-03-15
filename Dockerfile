@@ -9,7 +9,7 @@ FROM        ubuntu:16.04 AS base
 WORKDIR     /tmp/workdir
 
 RUN     apt-get -yqq update && \
-        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 pulseaudio && \
+        apt-get install -yq --no-install-recommends ca-certificates expat libgomp1 pulseaudio libass5 libfreetype6 libsdl2-2.0-0 libva1 libvdpau1 libxcb1 libxcb-shm0 libxcb-xfixes0 zlib1g libx264-148 libxv1 libva-drm1 libva-x11-1 libxcb-shape0 && \
         apt-get autoremove -y && \
         apt-get clean -y
 
@@ -20,7 +20,7 @@ ARG        LD_LIBRARY_PATH=/opt/ffmpeg/lib
 ARG        PREFIX=/opt/ffmpeg
 ARG        MAKEFLAGS="-j2"
 
-ENV         FFMPEG_VERSION=4.1     \
+ENV         FFMPEG_VERSION=4.0.2     \
             X264_VERSION=20170226-2245-stable \
             SRC=/usr/local
 
@@ -44,21 +44,10 @@ RUN      buildDeps="autoconf \
                     yasm \
                     libpulse-dev \
                     libxcb1-dev libxcb-shm0-dev   libxcb-xfixes0-dev \
+                    libx264-dev \
                     zlib1g-dev" && \
         apt-get -yqq update && \
         apt-get install -yq --no-install-recommends ${buildDeps}
-
-## x264 http://www.videolan.org/developers/x264.html
-RUN \
-        DIR=/tmp/x264 && \
-        mkdir -p ${DIR} && \
-        cd ${DIR} && \
-        curl -sL https://download.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-${X264_VERSION}.tar.bz2 | \
-        tar -jx --strip-components=1 && \
-        ./configure --prefix="${PREFIX}" --enable-shared --enable-pic --disable-cli && \
-        make && \
-        make install && \
-        rm -rf ${DIR}
 
 ## ffmpeg from etherlabsio/ffmpeg
 RUN  \
