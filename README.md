@@ -5,6 +5,8 @@ FFmpeg is a collection of libraries and tools to process multimedia content
 such as audio, video, subtitles and related metadata.
 
 ## Libraries
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2FFFmpeg.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2FFFmpeg?ref=badge_shield)
+
 
 * `libavcodec` provides implementation of a wider range of codecs.
 * `libavformat` implements streaming protocols, container formats and basic I/O access.
@@ -38,6 +40,9 @@ Coding examples are available in the **doc/examples** directory.
 
 FFmpeg codebase is mainly LGPL-licensed with optional components licensed under
 GPL. Please refer to the LICENSE file for detailed information.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2FFFmpeg.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2FFFmpeg?ref=badge_large)
 
 ## Contributing
 
